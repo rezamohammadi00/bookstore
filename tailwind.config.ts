@@ -11,6 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        lightBg:"#F4F4FF"
+      },
+      fontFamily: {
+        IRANSans: "var(--font-IRANSans)",
       },
     },
   },
