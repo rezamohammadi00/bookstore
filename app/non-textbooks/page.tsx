@@ -8,7 +8,7 @@ function Page() {
           <h3 className="text-4xl mb-8 text-[#090937] font-bold">ازاد</h3>
           {/* <p className="text-xl text-[#EF6B4A]">دیدن همه</p> */}
         </div>
-        <div className="flex items-center gap-4 flex-wrap">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center">
           {[1, 2, 3,4,5,6,7,8].map((i) => (
             <Card
               title="سیر عشق"

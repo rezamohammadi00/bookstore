@@ -19,7 +19,7 @@ const Topbar = () => {
         className="w-[800px] h-12 bg-lightBg text-[#090937] rounded-lg mx-8 px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6251DD] focus:ring-offset-2"
         placeholder="جستجوی نام کتاب، نویسنده، ژانر ..."
       />
-      <div className="flex gap-4 items-center text-[#090937]">
+      <div className="flex gap-4 items-center text-[#090937] hidden lg:flex">
         <div className="bg-lightBg text-[#090937] p-3 rounded-md">
           <UserIcon className="size-6 " />
         </div>
