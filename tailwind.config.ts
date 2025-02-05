@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import daisyui from "daisyui"; // for daisyUI adding
 
 export default {
   content: [
@@ -8,15 +9,13 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        lightBg:"#F4F4FF"
-      },
       fontFamily: {
-        IRANSans: "var(--font-IRANSans)",
+        IranSansXPro: "var(--font-IranSansXPro)",
       },
     },
+    plugins: [daisyui],   // for daisyUI adding 
+    daisyui: {
+      themes: ["winter"], //add winter theme of daisyui
+    }
   },
-  plugins: [],
 } satisfies Config;

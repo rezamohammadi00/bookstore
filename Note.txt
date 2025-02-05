@@ -1,0 +1,29 @@
+How to install daisyUI?
+1)pnpm add -D daisyui@latest
+2)tailwind.config.js:
+import daisyui from "daisyui"
+export default {
+  //...
+  plugins: [
+    daisyui,
+  ],
+}
+---------------------------------------------------------------------
+<Layout>{children}</Layout>   -->Layout component
+<main&header><Container>...</<Container></main&header> -->Container component
+----------------------------------------------------------------------
+id:string
+----------------------------------------------------------------------
+you can modify the component with daisyUI additional utility classes
+Or you can modify the component with Tailwind CSS utility classes
+----------------------------------------------------------------------
+CTRL+P+">TypeScript:Version...+..workspace.."
+-----------------------------------------------------------------------
+Installing Auth.js:
+1)npm install next-auth@beta
+2)npx auth secret
+3).env.local -> .env
+4)بقیه کدا تو پروژه است
+-----------------------------------------------------------------------
+ export const dynamic = "force-dynamic";
+-----------------------------------------------------------------------

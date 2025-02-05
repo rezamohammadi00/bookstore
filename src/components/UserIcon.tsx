@@ -1,0 +1,31 @@
+"use client"
+import { signOut } from "next-auth/react"
+import Link from "next/link";
+import { UserIcon as Icon } from "@heroicons/react/24/outline";
+
+const UserIcon = () => {
+  return (
+    <div className="dropdown dropdown-bottom dropdown-end ">
+      <div tabIndex={0} role="button" className="">
+        <div className="btn btn-circle border-secondary hover:text-gray-700">
+          <Icon className="size-6" />
+        </div>
+      </div>
+      <ul
+        tabIndex={0}
+        className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+      >
+        <li>
+          <Link href={"/dashboard"}>داشبورد</Link>
+        </li>
+        <li>
+          <Link href={"/"} className="text-red-600" onClick={()=>signOut({
+            redirectTo:"/"
+          })}>خروج</Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default UserIcon;
