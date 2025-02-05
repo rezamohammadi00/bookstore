@@ -13,7 +13,7 @@ const AddToCart = ({ name, id, image, description, price }: CardProps) => {
       <>
         <button
           className="btn btn-primary text-white"
-          onClick={() => document.getElementById("my_modal_2").showModal()}
+          //onClick={() => document.getElementById("my_modal_2").showModal()}
         >
           خریدن
         </button>
