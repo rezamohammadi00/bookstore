@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-
-
 import Container from "@/src/components/Container";
 import NavLink from "@/src/components/NavLink";
 import { auth } from "@/src/lib/auth";

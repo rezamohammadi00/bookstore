@@ -16,10 +16,21 @@ const UserIcon = () => {
         className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
       >
         <li>
-          <Link href={"/dashboard"}>داشبورد</Link>
+          <Link
+            href="/dashboard"
+            onClick={(e) => {
+              // Close mobile menu after navigation
+              e.stopPropagation();
+              const dropdown = document.activeElement as HTMLElement;
+              dropdown?.blur();
+            }}
+          >
+            داشبورد
+          </Link>
         </li>
         <li>
-          <span
+          <button
+            type="button"
             className="text-red-600"
             onClick={() =>
               signOut({
@@ -28,7 +39,7 @@ const UserIcon = () => {
             }
           >
             خروج
-          </span>
+          </button>
         </li>
       </ul>
     </div>

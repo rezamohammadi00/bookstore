@@ -14,6 +14,12 @@ const NavLink = ({ href, title }: NavLinkProps) => {
       <Link
         href={href}
         className={pathname === href ? "border-b border-primary" : ""}
+        onClick={(e) => {
+          // Close mobile menu after navigation
+          e.stopPropagation();
+          const dropdown = document.activeElement as HTMLElement;
+          dropdown?.blur();
+        }}
       >
         {title}
       </Link>

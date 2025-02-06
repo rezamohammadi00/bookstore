@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { useSession } from "next-auth/react";
+
 import type { CardProps } from "@/src/components/Card";
 import { useCart } from "@/src/providers/Cart";
 

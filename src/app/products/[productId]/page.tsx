@@ -6,6 +6,8 @@ import type { CardProps } from "@/src/components/Card";
 import Container from "@/src/components/Container";
 import AddToCart from "@/src/components/AddToCart";
 
+import db from "@/src/app/api/products/db";
+
 // In a real application, you'd fetch this data from an API or database
 const book = {
   id: "1",
@@ -20,10 +22,10 @@ const book = {
   publishDate: "April 10, 1925",
 };
 
-const getProduct = async (productId: string) => {
-  const res = await fetch("http://localhost:3000/api/products/" + productId);
-  return res.json();
-};
+// const getProduct = async (productId: string) => {
+//   const res = await fetch("http://localhost:3000/api/products/" + productId);
+//   return res.json();
+// };
 
 const ProductPage = async ({
   params,
@@ -31,7 +33,10 @@ const ProductPage = async ({
   params: Promise<{ productId: string }>;
 }) => {
   const productId = (await params).productId;
-  const product: CardProps = await getProduct(productId);
+  // const product: CardProps = await getProduct(productId);
+
+  const product: CardProps = db[Number(productId)];
+
   return (
     <main className="md:min-h-[85vh] min-h-[86vh] bg-base-200">
       <Container>

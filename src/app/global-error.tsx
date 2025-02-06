@@ -10,7 +10,6 @@ export default function GlobalError() {
       <head>
         <DaisyuiScript />
       </head>
-
       <body dir="rtl">
         <main className="w-screen h-screen flex justify-center items-center">
           <div className="w-1/2">

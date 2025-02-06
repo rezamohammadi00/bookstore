@@ -4,6 +4,7 @@ import type { CardProps } from "@/src/components/Card";
 import FilterBox from "@/src/components/FilterBox";
 
 import db from "@/src/app/api/products/db";
+
 // export const dynamic = "force-dynamic";
 
 // const getProducts = async () => {
@@ -14,13 +15,11 @@ import db from "@/src/app/api/products/db";
 const ProductsPage = async () => {
   // const products: CardProps[] = await getProducts();
   const products: CardProps[] = db;
-  // console.log(products);
+
   return (
     <main className="min-h-screen">
       <Container>
-        {/* <div className="bg-base-200 py-4 flex gap-2 px-4 lg:px-40"> */}
         <FilterBox />
-        {/* </div> */}
         <div className="flex flex-wrap gap-6 justify-center py-4  bg-base-200 ">
           {products.map((product) => (
             <Card {...product} key={product.id} />
@@ -30,5 +29,4 @@ const ProductsPage = async () => {
     </main>
   );
 };
-
 export default ProductsPage;
