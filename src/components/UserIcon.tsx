@@ -7,7 +7,7 @@ const UserIcon = () => {
   return (
     <div className="dropdown dropdown-bottom dropdown-end ">
       <div tabIndex={0} role="button" className="">
-        <div className="btn btn-circle border-secondary hover:text-gray-700">
+        <div className="btn btn-circle border-primary hover:text-gray-700">
           <Icon className="size-6" />
         </div>
       </div>

@@ -7,7 +7,7 @@ const CartIcon = () => {
   const { totalItems } = useCart();
   return (
     <div className="badge">
-      <span className="-ml-4 -mt-2 z-30 text-accent">{totalItems}</span>
+      <span className="-ml-4 -mt-2 z-30 text-accent font-bold">{totalItems}</span>
       <button className="btn btn-circle border-primary hover:text-gray-700">
         <ShoppingBagIcon className="size-6" />
       </button>

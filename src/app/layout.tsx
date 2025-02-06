@@ -4,8 +4,9 @@ import { SessionProvider } from "next-auth/react";
 import "@/src/styles/globals.css";
 import IranSansXPro from "@/src/styles/fonts";
 import Layout from "@/src/components/Layout";
-import Daisyui from "@/src/scripts/Daisyui";
+import DaisyuiScript from "@/src/scripts/DaisyuiScript";
 import { CartProvider } from "@/src/providers/Cart";
+// import { ErrorWrapper } from "@/src/components/error-wrapper";
 
 export const metadata: Metadata = {
   title: "کتابان",
@@ -21,7 +22,8 @@ export default function RootLayout({
     <html lang="fa-IR" data-theme="winter">
       {/* for to add daisyUI theme(winter) added tailwind.config.ts*/}
       <head>
-        <Daisyui />
+        <DaisyuiScript />
+        {/* but Mosh do not use <head></head> */}
       </head>
       <body
         className={`${IranSansXPro.className} ${IranSansXPro.variable} antialiased font-normal`}
@@ -29,10 +31,15 @@ export default function RootLayout({
       >
         <SessionProvider>
           <CartProvider>
-            <Layout>{children}</Layout>
+            <Layout>
+              {/* <ErrorWrapper>  for test global-error.tsx */}
+              {children}
+              {/* </ErrorWrapper> */}
+            </Layout>
           </CartProvider>
         </SessionProvider>
       </body>
+      {/* <DaisyuiScript />  recommended by doc */}
     </html>
   );
 }
