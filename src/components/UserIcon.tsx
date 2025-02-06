@@ -1,5 +1,5 @@
-"use client"
-import { signOut } from "next-auth/react"
+"use client";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { UserIcon as Icon } from "@heroicons/react/24/outline";
 
@@ -19,9 +19,16 @@ const UserIcon = () => {
           <Link href={"/dashboard"}>داشبورد</Link>
         </li>
         <li>
-          <Link href={"/"} className="text-red-600" onClick={()=>signOut({
-            redirectTo:"/"
-          })}>خروج</Link>
+          <span
+            className="text-red-600"
+            onClick={() =>
+              signOut({
+                redirectTo: "/",
+              })
+            }
+          >
+            خروج
+          </span>
         </li>
       </ul>
     </div>
