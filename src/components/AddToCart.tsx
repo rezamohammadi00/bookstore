@@ -14,7 +14,11 @@ const AddToCart = ({ name, id, image, description, price }: CardProps) => {
       <>
         <button
           className="btn btn-primary text-white"
+<<<<<<< HEAD
           onClick={() => dialogRef.current?.showModal()}
+=======
+          //onClick={() => document.getElementById("my_modal_2").showModal()}
+>>>>>>> 86a19398b74749aacaecd455c3eccdc2e26fd53a
         >
           خریدن
         </button>
