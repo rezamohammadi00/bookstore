@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa-IR" data-theme="winter">
-      {/* for to add daisyUI theme(winter) added tailwind.config.ts*/}
+      {/*data-theme="winter" for to add daisyUI theme(winter) added tailwind.config.ts*/}
       <head>
         <DaisyuiScript />
         {/* but Mosh do not use <head></head> */}

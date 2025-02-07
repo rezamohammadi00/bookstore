@@ -1,4 +1,5 @@
-"use client"; // Error boundaries must be Client Components
+"use client"; // Error boundaries must be Client Components 
+// // the global-error.tsx only renders if a error happens in RootLayout in production mode.
 
 import "@/src/styles/globals.css";
 import DaisyuiScript from "@/src//scripts/DaisyuiScript";
@@ -33,7 +34,7 @@ export default function GlobalError() {
               </span>
               <button
                 className="btn btn-sm"
-                onClick={() => window.location.reload()}
+                onClick={() => window.location.reload()} //این لاین یادت نره تو این فایل
               >
                 تلاش دوباره
               </button>
