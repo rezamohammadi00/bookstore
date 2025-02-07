@@ -4,7 +4,13 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 
-export default function Error({error,reset,}: {error: Error & { digest?: string };reset: () => void;}) {
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   const router = useRouter();
   const reload = () => {
     startTransition(() => {
@@ -18,7 +24,6 @@ export default function Error({error,reset,}: {error: Error & { digest?: string 
     console.error(error); //tip: for development mode console.error(error) is enough
   }, [error]);
 
-
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-base-100 shadow-lg rounded-lg p-8 text-center">
@@ -27,7 +32,7 @@ export default function Error({error,reset,}: {error: Error & { digest?: string 
         <p className="mb-8 text-base-content/70">
           دوباره تلاش کنید،درصورت حل نشدن خطا با پشتیمان تماس بگیرید.
         </p>
-        <button className="btn btn-primary" onClick={reload}>
+        <button className="btn btn-primary text-white" onClick={reload}>
           تلاش دوباره
         </button>
       </div>
