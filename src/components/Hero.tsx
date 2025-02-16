@@ -1,16 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
+
+import HERO from "@/public/images/hero.jpg";
 
 const Hero = () => {
   return (
-    <div
-      className="hero md:min-h-[83vh] min-h-[89vh]"
-      style={{
-        backgroundImage:
-          // "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-          "url(/images/hero.jpg)",
-          objectFit:"cover"
-      }}
-    >
+    <div className="hero min-h-screen relative w-full">
+      <Image
+        alt="Hero"
+        src={HERO}
+        priority
+        placeholder="blur"
+        fill
+        quality={100}
+        sizes="100vw"
+        className="-z-10 object-cover"
+      />
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="max-w-md">

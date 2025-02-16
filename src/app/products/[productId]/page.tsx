@@ -1,41 +1,34 @@
+import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-// import { Star, ShoppingCart } from "lucide-react"
 import { StarIcon } from "@heroicons/react/24/outline";
 import type { CardProps } from "@/src/components/Card";
 import Container from "@/src/components/Container";
 import AddToCart from "@/src/components/AddToCart";
 
-import db from "@/src/app/api/products/db";
-
-// In a real application, you'd fetch this data from an API or database
-const book = {
-  id: "1",
-  title: "The Great Gatsby",
-  author: "F. Scott Fitzgerald",
-  coverImage: "/placeholder.svg",
-  description:
-    "The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.",
-  price: 14.99,
-  rating: 4.5,
-  pageCount: 180,
-  publishDate: "April 10, 1925",
+type Props = {
+  params: Promise<{ productId: string }>;
 };
 
-// const getProduct = async (productId: string) => {
-//   const res = await fetch("http://localhost:3000/api/products/" + productId);
-//   return res.json();
-// };
+const getProduct = async (productId: string) => {
+  const res = await fetch("http://localhost:3000/api/products/" + productId);
+  if (!res.ok) notFound(); // it is commonly used(notFound())in detail pages(if you not use generateStaticParams).
+  return res.json();
+};
 
-const ProductPage = async ({
-  params,
-}: {
-  params: Promise<{ productId: string }>;
-}) => {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const productId = (await params).productId;
-  // const product: CardProps = await getProduct(productId);
+  const product: CardProps = await getProduct(productId);
 
-  const product: CardProps = db[Number(productId)];
+  return {
+    title: product.name,
+  };
+}
+
+const ProductPage = async ({ params }: Props) => {
+  const productId = (await params).productId;
+  const product: CardProps = await getProduct(productId);
 
   return (
     <main className="md:min-h-[85vh] min-h-[86vh] bg-base-200">
@@ -62,7 +55,7 @@ const ProductPage = async ({
                     <StarIcon
                       key={i}
                       className={`w-5 h-5 ${
-                        i < Math.floor(book.rating)
+                        i < Math.floor(5.5)
                           ? "text-yellow-400 fill-current"
                           : "text-gray-300"
                       }`}

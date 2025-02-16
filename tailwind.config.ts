@@ -1,21 +1,21 @@
 import type { Config } from "tailwindcss";
-import daisyui from "daisyui"; // for daisyUI adding
+import daisyui from "daisyui";
 
 export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        IranSansXPro: "var(--font-IranSansXPro)",
+        IranSansXPro: ["var(--font-IranSansXPro)", "sans-serif"], // Added fallback
       },
     },
-    plugins: [daisyui],   // for daisyUI adding 
-    daisyui: {
-      themes: ["winter"], //add winter theme of daisyui
-    }
+  },
+  plugins: [daisyui], // Added daisyui plugin here
+  daisyui: {
+    themes: ["winter"], // Add theme config if using DaisyUI themes
   },
 } satisfies Config;

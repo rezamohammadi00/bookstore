@@ -1,4 +1,9 @@
 import Container from "@/src/components/Container";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "درباره‌ما",
+};
 
 export default function AboutPage() {
   return (

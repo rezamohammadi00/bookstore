@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import Card from "@/src/components/Card";
 import Container from "@/src/components/Container";
 import type { CardProps } from "@/src/components/Card";
@@ -11,6 +13,11 @@ import db from "@/src/app/api/products/db";
 //   const res = await fetch("http://localhost:3000/api/products");
 //   return res.json();
 // };
+
+
+export const metadata: Metadata = {
+  title: "کتاب‌ها",
+};
 
 const ProductsPage = async () => {
   // const products: CardProps[] = await getProducts();
