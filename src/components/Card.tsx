@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "next/image";
 // import React from "react";
 
 import Link from "next/link";
@@ -17,7 +17,13 @@ const Card = ({ name, description, price, image, id }: CardProps) => {
     <Link href={`/products/${id}`}>
       <div className="card card-compact bg-base-100 w-96 shadow-xl">
         <figure>
-          <img src={"/images/fake2.jpg"} alt="Shoes" />
+          {/* <img src={"/images/fake2.jpg"} alt="Shoes" /> */}
+          <Image
+            src={"/images/fake2.jpg"}
+            alt="Shoes"
+            width={384}
+            height={200}
+          />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>

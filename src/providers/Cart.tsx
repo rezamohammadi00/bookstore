@@ -4,7 +4,7 @@ import { createContext, type ReactNode, useReducer, useContext } from "react";
 import type { CardProps } from "@/src/components/Card";
 
 // Define the CartItem type (assuming it matches CardProps)
-type CartItem = CardProps & { quantity: number };
+export type CartItem = CardProps & { quantity: number };
 
 // Define the CartContext type
 type CartContextType = {
