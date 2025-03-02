@@ -12,17 +12,19 @@ export type CardProps = {
 };
 
 const Card = ({ name, description, price, image, id }: CardProps) => {
-  console.log(image);
+
   return (
     <Link href={`/products/${id}`}>
       <div className="card card-compact bg-base-100 w-96 shadow-xl">
         <figure>
           {/* <img src={"/images/fake2.jpg"} alt="Shoes" /> */}
           <Image
-            src={"/images/fake2.jpg"}
+            src={image}
+            // src={"/images/fake2.jpg"}
             alt="Shoes"
             width={384}
             height={200}
+            className="w-[384px] h-[200px] object-scale-down pt-2"
           />
         </figure>
         <div className="card-body">
@@ -30,9 +32,9 @@ const Card = ({ name, description, price, image, id }: CardProps) => {
           <p>{description}</p>
           <div className="card-actions justify-between items-center">
             <span className="font-bold border-b border-primary">
-              {price} تومان
+              {price.toLocaleString()} تومان
             </span>
-            <button className="btn btn-primary text-white">جزییات</button>
+            <button className="btn btn-primary text-white">جزئیات</button>
           </div>
         </div>
       </div>

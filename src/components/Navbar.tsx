@@ -9,7 +9,8 @@ import UserIcon from "@/src/components/UserIcon";
 
 const links = [
   { title: "خانه", href: "/" },
-  { title: "محصولات", href: "/products" },
+  { title: "کتاب‌ها", href: "/products" },
+  { title: "بلاگ", href: "/blogs" },
   { title: "درباره‌ما", href: "/about" },
 ];
 
@@ -105,7 +106,7 @@ const Navbar = async () => {
           <div className="navbar-end">
             {session ? (
               <div className="flex gap-2 items-center">
-                <UserIcon/>
+                <UserIcon />
                 <CartIcon />
               </div>
             ) : (

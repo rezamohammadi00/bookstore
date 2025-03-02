@@ -9,7 +9,7 @@ export const { handlers, auth } = NextAuth({
         //console.log(credentials);  //{email: 'rezamohammadi7979@gmail.com',password: '123456789',callbackUrl: '/dashboard',csrfToken: 'fb750923b503d589519382effcf5fc6e37da6e301057c3f7e1803d758119f206'}
         if (credentials.email && credentials.password) {
           if (
-            credentials.email === "PRO" &&
+            credentials.email === "r@gmail.com" &&
             credentials.password === "123456789"
           ) {
             return {              //import { auth } from "@/src/lib/auth" -SC-> const session = await auth() --SC-> {user: {name: "reza"}, expires: '2025-03-05T19:13:10.907Z'}  -> it does not access in CC

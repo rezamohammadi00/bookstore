@@ -71,14 +71,14 @@ const products = [
     price: 35000,
     image: "/images/book2.webp",
   },
-  {
-    id: "10",
-    name: "بربادرفته",
-    description:
-      "رمانی تاریخی از مارگارت میچل که داستان اسکارلت اوهارا را در جریان جنگ داخلی آمریکا روایت می‌کند.",
-    price: 75000,
-    image: "/images/book2.webp",
-  },
+  // {
+  //   id: "10",
+  //   name: "بربادرفته",
+  //   description:
+  //     "رمانی تاریخی از مارگارت میچل که داستان اسکارلت اوهارا را در جریان جنگ داخلی آمریکا روایت می‌کند.",
+  //   price: 75000,
+  //   image: "/images/book2.webp",
+  // },
 ];
 
 export default products;

@@ -29,6 +29,20 @@ const UserIcon = () => {
           </Link>
         </li>
         <li>
+          <Link
+            href="/dashboard"
+            className="lg:hidden"
+            onClick={(e) => {
+              // Close mobile menu after navigation
+              e.stopPropagation();
+              const dropdown = document.activeElement as HTMLElement;
+              dropdown?.blur();
+            }}
+          >
+            لیست خرید‌ها
+          </Link>
+        </li>
+        <li>
           <button
             type="button"
             className="text-red-600"

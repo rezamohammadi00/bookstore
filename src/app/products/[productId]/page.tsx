@@ -38,7 +38,7 @@ const ProductPage = async ({ params }: Props) => {
             <div className="md:flex md:space-x-8 md:gap-10">
               <div className="md:w-1/3 mb-6 md:mb-0">
                 <Image
-                  src={"/images/fake.jpg"}
+                  src={product.image || "/images/fake.jpg"}
                   alt={product.name}
                   width={300}
                   height={450}
@@ -70,7 +70,7 @@ const ProductPage = async ({ params }: Props) => {
                 </span>
                 <div className="flex items-center justify-between mb-6 pt-3">
                   <span className="text-2xl font-bold text-primary ">
-                    {product.price} تومان
+                    {product.price.toLocaleString()} تومان
                   </span>
                   <AddToCart {...product} />
                 </div>

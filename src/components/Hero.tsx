@@ -22,7 +22,7 @@ const Hero = () => {
           <h1 className="text-5xl font-bold">سلام دوست جدید</h1>
           <p className="py-6">به سایت کتابان خوش اومدی❤️</p>
           <Link href="/products">
-            <button className="btn btn-primary text-white">دیدن محصولات</button>
+            <button className="btn btn-primary text-white">دیدن کتاب‌ها</button>
           </Link>
         </div>
       </div>

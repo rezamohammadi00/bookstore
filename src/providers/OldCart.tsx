@@ -1,37 +1,24 @@
 "use client";
 
-import {
-  createContext,
-  type ReactNode,
-  useReducer,
-  useContext,
-  useEffect,
-} from "react";
+import { createContext, type ReactNode, useReducer, useContext } from "react";
 import type { CardProps } from "@/src/components/Card";
 
-// Define the CartItem type
+// Define the CartItem type (assuming it matches CardProps)
 export type CartItem = CardProps & { quantity: number };
 
 // Define the CartContext type
 type CartContextType = {
-  cartItems: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
-  totalItems: number;
-  totalPrice: number;
+  cartItems: CartItem[]; // List of items in the cart
+  addToCart: (item: CartItem) => void; // Function to add an item to the cart
+  removeFromCart: (id: string) => void; // Function to remove an item from the cart
+  updateQuantity: (id: string, quantity: number) => void; // Function to update item quantity
+  clearCart: () => void; // Function to clear the cart
+  totalItems: number; // Total number of items in the cart
+  totalPrice: number; // Total price of all items in the cart
 };
 
 // Create the context
 export const CartContext = createContext<CartContextType | null>(null);
-
-// Load cart from localStorage
-const loadCartFromLocalStorage = (): CartItem[] => {
-  if (typeof window === "undefined") return [];
-  const storedCart = localStorage.getItem("cart");
-  return storedCart ? JSON.parse(storedCart) : [];
-};
 
 // Define the cart reducer actions
 type CartAction =
@@ -42,47 +29,39 @@ type CartAction =
 
 // Cart reducer function
 const cartReducer = (state: CartItem[], action: CartAction): CartItem[] => {
-  let newState: CartItem[];
   switch (action.type) {
     case "ADD_ITEM": {
       const existingItem = state.find((item) => item.id === action.payload.id);
       if (existingItem) {
-        newState = state.map((item) =>
+        return state.map((item) =>
           item.id === action.payload.id
             ? { ...item, quantity: item.quantity + action.payload.quantity }
             : item
         );
-      } else {
-        newState = [...state, action.payload];
       }
-      break;
+      return [...state, action.payload];
     }
 
-    case "REMOVE_ITEM":
-      newState = state.filter((item) => item.id !== action.payload);
-      break;
+    case "REMOVE_ITEM": {
+      return state.filter((item) => item.id !== action.payload);
+    }
 
-    case "UPDATE_QUANTITY":
-      newState = state.map((item) =>
+    case "UPDATE_QUANTITY": {
+      return state.map((item) =>
         item.id === action.payload.id
           ? { ...item, quantity: action.payload.quantity }
           : item
       );
-      break;
+    }
 
-    case "CLEAR_CART":
-      newState = [];
-      break;
+    case "CLEAR_CART": {
+      return [];
+    }
 
-    default:
+    default: {
       return state;
+    }
   }
-
-  // Update localStorage when the cart changes
-  if (typeof window !== "undefined") {
-    localStorage.setItem("cart", JSON.stringify(newState));
-  }
-  return newState;
 };
 
 // CartProvider component
@@ -91,18 +70,7 @@ type CartProviderProps = {
 };
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cartItems, dispatch] = useReducer(
-    cartReducer,
-    [],
-    loadCartFromLocalStorage
-  );
-
-  // Update localStorage whenever cartItems change
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("cart", JSON.stringify(cartItems));
-    }
-  }, [cartItems]);
+  const [cartItems, dispatch] = useReducer(cartReducer, []);
 
   // Calculate total number of items in the cart
   const totalItems = cartItems.reduce(
@@ -116,16 +84,27 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     0
   );
 
-  // Cart actions
-  const addToCart = (item: CartItem) =>
+  // Add an item to the cart
+  const addToCart = (item: CartItem) => {
     dispatch({ type: "ADD_ITEM", payload: item });
-  const removeFromCart = (id: string) =>
-    dispatch({ type: "REMOVE_ITEM", payload: id });
-  const updateQuantity = (id: string, quantity: number) =>
-    dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
-  const clearCart = () => dispatch({ type: "CLEAR_CART" });
+  };
 
-  // Provide the context value
+  // Remove an item from the cart
+  const removeFromCart = (id: string) => {
+    dispatch({ type: "REMOVE_ITEM", payload: id });
+  };
+
+  // Update the quantity of an item in the cart
+  const updateQuantity = (id: string, quantity: number) => {
+    dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
+  };
+
+  // Clear the cart
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+
+  // Value to be provided by the context
   const value = {
     cartItems,
     addToCart,
