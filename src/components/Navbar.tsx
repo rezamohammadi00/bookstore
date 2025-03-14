@@ -11,6 +11,7 @@ const links = [
   { title: "خانه", href: "/" },
   { title: "کتاب‌ها", href: "/products" },
   { title: "بلاگ", href: "/blogs" },
+  { title: "تماس ", href: "/contact" },
   { title: "درباره‌ما", href: "/about" },
 ];
 
@@ -118,7 +119,7 @@ const Navbar = async () => {
                   ورود
                 </Link>{" "}
                 <Link
-                  href={"/auth/login"}
+                  href={"/auth/signup"}
                   className="btn btn-primary btn-outline"
                 >
                   ثبت‌نام

@@ -1,7 +1,7 @@
 import Container from "@/src/components/Container";
 
-import CartItemsList from "@/src/app/cart/CartItemsList";
-import OrderBox from "@/src/app/cart/OrderBox";
+import CartItemsList from "@/src/app/(main)/cart/CartItemsList";
+import OrderBox from "@/src/app/(main)/cart/OrderBox";
 
 const CartPage = () => {
   return (

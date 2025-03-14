@@ -19,8 +19,8 @@ const Hero = () => {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="max-w-md">
-          <h1 className="text-5xl font-bold">سلام دوست جدید</h1>
-          <p className="py-6">به سایت کتابان خوش اومدی❤️</p>
+          <h1 className="text-5xl font-bold text-white shadow-2xl">سلام دوست من</h1>
+          <p className="py-6 text-white">به <span className="font-bold border-b-2 border-primary">کتابان</span> خوش اومدی💚</p>
           <Link href="/products">
             <button className="btn btn-primary text-white">دیدن کتاب‌ها</button>
           </Link>

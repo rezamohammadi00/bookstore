@@ -1,14 +1,14 @@
 import Form from "next/form";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
-const FilterBox = () => {
+const ProductsSearchBox = () => {
   return (
     <Form
       action={"/products"}
       className="flex items-center justify-center lg:gap-4 gap-2 bg-base-200 py-4 "
     >
       <input
-        name="filter"
+        name="search"
         type="text"
         placeholder="نام کتاب مورد نظر خود را وارد کنید"
         className="input input-bordered lg:w-96 w-44 placeholder:text-xs"
@@ -16,7 +16,7 @@ const FilterBox = () => {
       />
       <select
         className="select select-bordered w-[110px] lg:w-48 text-xs"
-        name="genre"
+        name="filter"
         defaultValue={"all"}
       >
         <option value={"all"}>موضوع</option>
@@ -34,4 +34,4 @@ const FilterBox = () => {
   );
 };
 
-export default FilterBox;
+export default ProductsSearchBox;

@@ -17,7 +17,8 @@ const UserIcon = () => {
       >
         <li>
           <Link
-            href="/dashboard"
+            href="/dashboard/profile"
+            className="hidden lg:block"
             onClick={(e) => {
               // Close mobile menu after navigation
               e.stopPropagation();
@@ -30,7 +31,21 @@ const UserIcon = () => {
         </li>
         <li>
           <Link
-            href="/dashboard"
+            className="lg:hidden"
+            href="/dashboard/profile"
+            onClick={(e) => {
+              // Close mobile menu after navigation
+              e.stopPropagation();
+              const dropdown = document.activeElement as HTMLElement;
+              dropdown?.blur();
+            }}
+          >
+            پروفایل
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/dashboard/orders"
             className="lg:hidden"
             onClick={(e) => {
               // Close mobile menu after navigation

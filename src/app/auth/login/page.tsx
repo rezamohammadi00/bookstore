@@ -25,7 +25,7 @@ export default function LoginPage() {
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col lg:flex-row">
             <div className="text-center lg:text-right">
-              <h1 className="text-5xl font-bold">ورود به سیستم</h1>
+              <h1 className="text-5xl font-bold mb-4">ورود به سیستم</h1>
               <p className="py-6 lg:w-3/4 lg:leading-relaxed">
                 برای ورود ایمیل و رمزعبور خود را وارد کنید و درصورت با خطا مواجه
                 شدن با پشتیبان در تماس باشید.
@@ -40,7 +40,7 @@ export default function LoginPage() {
                   <input
                     type="email"
                     placeholder="ایمیل خود را وارد کنید"
-                    className="input input-bordered"
+                    className="input input-bordered placeholder:text-sm"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -53,7 +53,7 @@ export default function LoginPage() {
                   <input
                     type="password"
                     placeholder="رمز عبور خود را وارد کنید"
-                    className="input input-bordered"
+                    className="input input-bordered placeholder:text-sm"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required

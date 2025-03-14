@@ -1,5 +1,5 @@
 import BlogCard from "@/src/components/BlogCard";
-import BlogFilter from "@/src/components/BlogFilter";
+import BlogsSearchBox from "@/src/components/BlogsSearchBox";
 import Container from "@/src/components/Container";
 import Pagination from "@/src/components/Pagination";
 import Blog from "@/src/types/blog";
@@ -10,18 +10,18 @@ const getBlogs = async () => {
   return res.json();
 };
 
-type Props = { searchParams: Promise<{ page: string, filter: string }> }
+type Props = { searchParams: Promise<{ page: string, search: string }> }
 
 const BlogsPage = async ({ searchParams }: Props) => {
 
   //TODO: sent params to the API 
   const page = (await searchParams).page ?? 0
-  const filter = (await searchParams).filter ?? ""
-  console.log(page, filter)
+  const search = (await searchParams).search ?? ""
+  console.log(page, search)
   console.log("searchParams of blogs page", {
     params: {
       page,
-      filter,
+      search,
     }
   })
 
@@ -31,7 +31,7 @@ const BlogsPage = async ({ searchParams }: Props) => {
     <main className="min-h-screen">
       <Container>
         <div className="bg-base-200 flex flex-col items-center pt-8">
-          <BlogFilter />
+          <BlogsSearchBox />
           <div className="flex flex-wrap gap-6 justify-center py-8 bg-base-200">
             {blogs.map((blog) => (
               <BlogCard {...blog} key={blog.id} />
